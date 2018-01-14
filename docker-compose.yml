@@ -1,0 +1,31 @@
+version: '3'
+services:
+  # Ubuntu 
+  ubuntu:
+    container_name: demo-nodejs-ubuntu
+    build: 
+      context: ./docker
+      dockerfile: ubuntu   
+    volumes:
+      - ./:/demo
+    depends_on:
+      - mongodb
+      - redis
+    links:
+      - mongodb
+      - redis
+    ports:
+      - '3000:3000'
+    tty: true
+  # MongoDB
+  mongodb:
+    container_name: demo-nodejs-regis-mongodb
+    image: mongo:latest
+    ports:
+     - '5500:27017'
+  # Redis
+  redis:
+    container_name: demo-nodejs-regis-redis
+    image: redis:latest   
+    ports:
+     - '6600:6379'
