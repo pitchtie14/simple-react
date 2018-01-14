@@ -1,4 +1,4 @@
-#Initialize React project ( demo )
+# Initialize React project ( demo single component )
 
 ## Dependency libs 
 ---
